@@ -1,0 +1,87 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body setup */
+  body {
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Loader Container */
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* Diamond Loader */
+  .loader {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: rotate(45deg);
+    overflow: hidden;
+  }
+  
+  .loader:after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    margin: auto;
+    background: #222b32;
+  }
+  
+  .loader:before {
+    content: '';
+    position: absolute;
+    inset: -15px;
+    margin: auto;
+    background: #de3500;
+    animation: diamondLoader 2s linear infinite;
+  }
+  
+  @keyframes diamondLoader {
+    0%, 10% {
+      transform: translate(-64px, -64px) rotate(-45deg);
+    }
+    90%, 100% {
+      transform: translate(0px, 0px) rotate(-45deg);
+    }
+  }
+  
+  /* Logo Watermark */
+  .logo-watermark {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    
+    pointer-events: none; /* Click disabled */
+    z-index: 9999; /* Always on top */
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .loader {
+      width: 48px;
+      height: 48px;
+    }
+    .logo-watermark {
+      width: 60px;
+      bottom: 15px;
+      right: 15px;
+    }
+  }
+  
